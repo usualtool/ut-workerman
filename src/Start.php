@@ -19,7 +19,7 @@ class Start{
             $this->sport= $this->port+1;
             $register = new \GatewayWorker\Register("text://0.0.0.0:".$this->port);
             $gateway = new \GatewayWorker\Gateway("Websocket://0.0.0.0:".$this->sport);
-            $gateway->name = 'UTGateway';
+            $gateway->name = 'Gateway-Websocket';
             $gateway->count = 2;
             $gateway->lanIp = $this->ip;
             $gateway->startPort = 1025;
@@ -27,7 +27,7 @@ class Start{
             $gateway->pingData = '{"type":"ping"}';
             $gateway->registerAddress = "127.0.0.1:".$this->port;
             $worker = new \GatewayWorker\BusinessWorker();
-            $worker->name = 'UTBusinessWorker';
+            $worker->name = 'UT-BusinessWorker';
             $worker->count = 2;
             $worker->registerAddress = "127.0.0.1:".$this->port;
             //$worker->eventHandler = '\usualtool\Workerman\Events';
