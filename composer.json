@@ -1,0 +1,23 @@
+{
+    "name": "usualtool/ut-workerman",
+    "description": "UT framework extension:Workerman",
+    "keywords": ["ut-workerman", "usualtool", "UT Framework"],
+    "homepage": "http://frame.usualtool.com",
+    "license": "Apache-2.0",
+    "authors": [
+        {
+        "name":  "HuangDou",
+        "email": "292951110@qq.com"
+        }
+    ],
+    "require": {
+        "workerman/workerman": "^4.0.3",
+        "workerman/gateway-worker": "^3.0.8",
+        "workerman/gatewayclient": "^3.0.13"
+    },
+    "autoload": {
+        "psr-4": {
+            "usualtool\\workerman\\": "src"
+        }
+    }
+}
