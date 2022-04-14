@@ -3,9 +3,6 @@ namespace usualtool\Workerman;
 use Workerman\Worker;
 class Start{
     public function __construct(){
-        if(strpos(strtolower(PHP_OS), 'win') === 0){
-            echo "start.php not support windows, please use start_for_win.bat\r\n";
-        }
         if(!extension_loaded('pcntl')){
             echo "Please install pcntl extension.\r\n";
         }
