@@ -1,6 +1,6 @@
 {
     "name": "usualtool/ut-workerman",
-    "description": "UT framework extension:Workerman",
+    "description": "UT Framework Extension:Workerman",
     "keywords": ["ut-workerman", "usualtool", "UT Framework"],
     "homepage": "https://github.com/usualtool",
     "license": "Apache-2.0",
@@ -21,4 +21,5 @@
         }
     }
 }
+
 
