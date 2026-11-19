@@ -4,15 +4,15 @@ use Workerman\Worker;
 class Start{
     public function __construct($host=''){
         if(strpos(strtolower(PHP_OS), 'win') === 0){
-            echo "start.php not support windows, please use start_for_win.bat\n";
+            exit("start.php not support windows, please use start_for_win.bat\n");
         }
         if(!extension_loaded('pcntl')){
-            echo "Please install pcntl extension.\r\n";
+            exit("Please install pcntl extension.\r\n");
         }
         if(!extension_loaded('posix')){
-            echo "Please install posix extension.\r\n";
+            exit("Please install posix extension.\r\n");
         }
-        if(!empty($host)){
+        if(!empty($host) && strpos($host,':')!==false){
             $this->host=$host;
             $this->ip = explode(':',$host)[0];
             $this->port = explode(':',$host)[1];
@@ -30,7 +30,7 @@ class Start{
             $worker->name = 'UT-BusinessWorker';
             $worker->count = 2;
             $worker->registerAddress = "127.0.0.1:".$this->port;
-            //$worker->eventHandler = '\usualtool\Workerman\Events';
+            $worker->eventHandler = '\usualtool\Workerman\Events';
         }
         define('GLOBAL_START', 1);
         Worker::runAll();
