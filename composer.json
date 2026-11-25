@@ -12,6 +12,7 @@
     ],
     "require": {
         "workerman/workerman": "^5.2",
+        "workerman/http-client": "^2.0",
         "workerman/gateway-worker": "^4.0",
         "workerman/gatewayclient": "^3.0.13"
     },
