@@ -2,7 +2,7 @@
 namespace usualtool\Workerman;
 use Workerman\Worker;
 class Start{
-    public function __construct($host=''){
+    public function __construct($host='',$port=''){
         if(strpos(strtolower(PHP_OS), 'win') === 0){
             exit("start.php not support windows, please use start_for_win.bat\n");
         }
@@ -12,10 +12,10 @@ class Start{
         if(!extension_loaded('posix')){
             exit("Please install posix extension.\r\n");
         }
-        if(!empty($host) && strpos($host,':')!==false){
-            $this->host=$host;
-            $this->ip = explode(':',$host)[0];
-            $this->port = explode(':',$host)[1];
+        if(!empty($host) && !empty($port)){
+            $this->host=$host.":".$port;
+            $this->ip = $host;
+            $this->port = $port;
             $this->sport= $this->port+1;
             $register = new \GatewayWorker\Register("text://".$this->ip.":".$this->port);
             $gateway = new \GatewayWorker\Gateway("Websocket://0.0.0.0:".$this->sport);
